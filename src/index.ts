@@ -166,7 +166,7 @@ server.registerTool(
       };
     }
 
-    const forecastUrl = pointsData.properties?.forecast;
+    const forecastUrl = pointsData.properties && pointsData.properties.forecast;
     if (!forecastUrl) {
       return {
         content: [
@@ -191,7 +191,7 @@ server.registerTool(
       };
     }
 
-    const periods = forecastData.properties?.periods || [];
+    const periods = (forecastData.properties && forecastData.properties.periods) || [];
     if (periods.length === 0) {
       return {
         content: [
